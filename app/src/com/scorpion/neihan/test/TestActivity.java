@@ -8,7 +8,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.scorpion.neihan.R;
+import com.scorpion.neihan.bean.AdEntity;
 import com.scorpion.neihan.bean.ImageEntity;
+import com.scorpion.neihan.bean.TextEntity;
 import com.scorpion.neihan.client.ClientAPI;
 
 import android.os.Bundle;
@@ -40,7 +42,7 @@ public class TestActivity extends Activity implements Response.Listener<String>{
 		queue = Volley.newRequestQueue(this);
 		
 		int itemCount = 30;
-		ClientAPI.getList(queue,CATEGORY_IMAGE, itemCount,this);
+		ClientAPI.getList(queue,CATEGORY_TEXT, itemCount,this);
 		
 	}
 	@Override
@@ -55,8 +57,8 @@ public class TestActivity extends Activity implements Response.Listener<String>{
 		Log.i("TestActivity", "List:"+arg0);
 		try {
 			JSONObject json = new JSONObject(arg0);
-			arg0 = json.toString(4);
-			System.out.println(arg0);
+//			arg0 = json.toString(4);
+//			System.out.println(arg0);
 			
 			//获取根节点下面的data对象
 			JSONObject obj = json.getJSONObject("data");
@@ -70,8 +72,29 @@ public class TestActivity extends Activity implements Response.Listener<String>{
 				//遍历数组中的每一条图片段子信息
 				for (int i = 0; i < len; i++) {
 					JSONObject item = array.getJSONObject(i);
-					ImageEntity imageEntity = new ImageEntity();
-					imageEntity.parseJson(item);
+					int type = item.getInt("type");//获取类型，1表示段子，5表示广告
+					if(type == 5){
+						//TODO 处理广告内容
+						AdEntity entity = new AdEntity();
+						entity.parseJson(item);
+						String downloadUrl = entity.getDownloadUrl();
+						Log.i("TestActivity", "downloadUrl"+downloadUrl);
+					}else if(type == 1){
+						//TODO 处理段子类型
+						JSONObject group = item.getJSONObject("group");
+						int cid = group.getInt("category_id");
+						TextEntity entity = null;
+						if(cid == 1){
+							//TODO解析文本段子
+							entity = new TextEntity();
+						}else if(cid == 2){
+							//TODO解析图片段子
+							entity = new ImageEntity();
+						}
+						entity.parseJson(item);
+						long groupId = entity.getGroupId();
+						Log.i("TestActivity", "group id"+groupId);
+					}
 				}
 				
 			}

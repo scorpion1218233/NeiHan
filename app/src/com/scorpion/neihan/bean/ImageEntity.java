@@ -18,14 +18,19 @@ public class ImageEntity extends TextEntity{
 	public void parseJson(JSONObject item)throws JSONException{
 		super.parseJson(item);
 		JSONObject group = item.getJSONObject("group");
-		JSONObject largeImage = group.getJSONObject("large_image");
-		JSONObject middleImage = group.getJSONObject("middle_image");
+		JSONObject largeImage = group.optJSONObject("large_image");
+		JSONObject middleImage = group.optJSONObject("middle_image");
 		
 		largeList = new ImageUrlList();
-		largeList.parseJson(largeImage);
+		if(largeImage!=null){
+			largeList.parseJson(largeImage);			
+		}
 		
 		middleList = new ImageUrlList();
-		middleList.parseJson(middleImage);
+		if(middleImage!=null){
+			middleList.parseJson(middleImage);
+		}
+		
 	}
 	
 }

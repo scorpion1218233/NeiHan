@@ -18,5 +18,6 @@
 	<classpathentry kind="lib" path="libs/ShareSDK-Wechat-Core-2.4.0.jar"/>
 	<classpathentry kind="lib" path="libs/ShareSDK-Wechat-Favorite-2.4.0.jar"/>
 	<classpathentry kind="lib" path="libs/ShareSDK-Wechat-Moments-2.4.0.jar"/>
+	<classpathentry kind="lib" path="libs/android-gif-classes.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

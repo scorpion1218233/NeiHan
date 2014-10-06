@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textlist_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="段子"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/textlist_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+        <include
+            android:id="@+id/textlist_quick_tools"
+            layout="@layout/textlist_header_tools" />
+
+        <TextView
+            android:id="@+id/textlist_new_notify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#590000FF"
+            android:gravity="center"
+            android:text="30条信息" />
+    </FrameLayout>
+
+</LinearLayout>

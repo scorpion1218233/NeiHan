@@ -7,17 +7,19 @@
     <TextView
         android:id="@+id/quick_tools_publish"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
+        android:drawableLeft="@drawable/my_vote_icon"
         android:gravity="center"
-        android:text="我要投稿" />
+        android:text="@string/textlist_header_quick_tools_publish" />
 
     <TextView
         android:id="@+id/quick_tools_review"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:gravity="center"
-        android:text="我要审核" />
+        android:drawableLeft="@drawable/my_write_icon"
+        android:gravity="center_vertical"
+        android:text="@string/textlist_header_quick_tools_review" />
 
 </LinearLayout>

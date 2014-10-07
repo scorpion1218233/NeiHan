@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
 
+    <!-- 段子最上面的部分 显示用户头像和用户名 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,25 +13,30 @@
         <ImageView
             android:id="@+id/item_profile_image"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content" 
+            android:focusable="false"/>
 
         <TextView
-            android:id="@+id/tem_profile_nick"
+            android:id="@+id/item_profile_nick"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content" 
+            android:focusable="false"/>
     </LinearLayout>
 
+    <!-- 段子文本内容 -->
     <TextView
         android:id="@+id/item_content"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <!-- 段子图片内容 -->
     <LinearLayout
         android:id="@+id/item_image_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
+        <!-- 图片加载的时候显示的进度条 -->
         <ProgressBar
             android:id="@+id/item_image_download_progress"
             style="?android:attr/progressBarStyleHorizontal"
@@ -41,14 +47,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
+            <!-- 用于显示图片 可以用于播放gif -->
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/gifView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:scaleType="center"
-                android:src="@drawable/ic_launcher" >
-            </pl.droidsonroids.gif.GifImageView>
+                android:src="@drawable/ic_launcher" 
+                android:focusable="false"/>
 
             <TextView
                 android:id="@+id/btnGifPlay"
@@ -66,9 +73,10 @@
         android:gravity="center"
         android:orientation="horizontal" >
 
+        <!-- 点赞 -->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center" >
 
@@ -77,17 +85,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/item_digg_bg"
-                android:text="123" />
+                android:focusable="false"
+                android:text="digg" />
         </LinearLayout>
 
-        <View 
+        <!-- 分割线 -->
+        <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
-			android:background="#CCC"/>
-        
+            android:background="#ccc" />
+
+        <!-- 踩 -->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center" >
 
@@ -96,17 +107,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/item_bury_bg"
-                android:text="123" />
+                android:focusable="false"
+                android:text="bury" />
         </LinearLayout>
 
-        <View 
+        <!-- 分割线 -->
+        <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
-			android:background="#CCC"/>
-        
+            android:background="#ccc" />
+
+        <!-- 评论 -->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center" >
 
@@ -114,19 +128,21 @@
                 android:id="@+id/item_comment_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@null"
                 android:drawableLeft="@drawable/item_comment_bg"
-                android:text="123" />
+                android:focusable="false"
+                android:text="comm" />
         </LinearLayout>
-        
-        <View 
+
+        <!-- 分割线 -->
+        <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
-			android:background="#CCC"/>
+            android:background="#ccc" />
 
+        <!-- 分享 -->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center" >
 
@@ -135,7 +151,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:src="@drawable/item_share_bg" />
+                android:src="@drawable/item_share_bg" 
+                android:focusable="false"/>
         </LinearLayout>
     </LinearLayout>
 

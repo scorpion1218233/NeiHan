@@ -9,7 +9,7 @@ public class Comment {
 	private String platform;
 	private String text;
 	private int diggCount;
-	private long userDigg;
+	private int userDigg;
 	private boolean userVerified;
 	private int buryCount;
 	private String userProfileUrl;
@@ -27,7 +27,7 @@ public class Comment {
 			platform = json.getString("platform");
 			text = json.getString("text");
 			diggCount = json.getInt("digg_count");
-			userDigg = json.getLong("user_digg");
+			userDigg = json.getInt("user_digg");
 			userVerified = json.getBoolean("user_verified");
 			buryCount = json.getInt("bury_count");
 			userProfileUrl = json.getString("user_profile_url");
@@ -57,7 +57,7 @@ public class Comment {
 		return diggCount;
 	}
 
-	public long getUserDigg() {
+	public int getUserDigg() {
 		return userDigg;
 	}
 

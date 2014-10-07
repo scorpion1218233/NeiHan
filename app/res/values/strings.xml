@@ -10,5 +10,8 @@
     <string name="main_tab_item_review">审核</string>
     <string name="mian_tab_item_huodong">活动</string>
     <string name="main_tab_item_mine">我的</string>
+    <string name="textlist_header_quick_tools_publish">我要投稿</string>
+    <string name="textlist_header_quick_tools_review">我要审核</string>
+    <string name="title_activity_essay_detail">EssayDetailActivity</string>
 
 </resources>
